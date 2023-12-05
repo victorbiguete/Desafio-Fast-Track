@@ -1,0 +1,31 @@
+.form-container {
+    flex: 1;
+    padding: 20px; /* Ajuste o espaçamento conforme necessário */
+  }
+
+.container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: auto;
+    height: 100vh;
+  }
+
+  .image-container {
+    flex: 1;
+    padding: 20px; /* Ajuste o espaçamento conforme necessário */
+  }
+  .image{
+      max-width: 100%;
+      height: auto;
+      border-radius: 8px;
+  }
+form {
+    display: flex;
+    flex-direction: column;
+   }
+input{
+    margin-bottom: 10px;
+}
+
+

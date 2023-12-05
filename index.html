@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <link rel="stylesheet" href="css/index.css">
+    
+  
+    <title>Document</title>
+</head>
+<body>
+    
+    <nav class="navbar nav-bar">
+        <div class="msg-boatarde">    
+        </div>
+        <div class="logaut">
+            <form action="#">
+                <input class="btn no-style" type="submit" onclick="Logaut()" value="Sair">
+            </form>
+        </div>
+    </nav>
+    
+    <h1 class="text-center">Gerenciados de Tarefas</h1>
+        
+    <div class="container">
+        <form class="row g-3">
+            <div class="col-md-12">
+                <input class="form-control" type="text" id="nomeTarefa" placeholder="Tarefa">
+            </div>
+            <div class="col-md-6">
+                <input class="form-control" type="text" id="dataInicio" placeholder="Data Início">
+            </div>
+            <div class="col-md-6">    
+                <input class="form-control" type="text" id="horaInicio" placeholder="Hora Início">
+            </div>
+            <div class="col-md-6">
+                <input class="form-control" type="text" id="dataFinal" placeholder="Data término">
+            </div>  
+            <div class="col-md-6">
+                <input class="form-control" type="text" id="horaFinal" placeholder="Hora término">
+            </div>  
+            <div class="col">
+                <textarea class="form-control" name="" id="descricao" rows="5" placeholder="Descrição"></textarea>                
+            </div>      
+            <div class="text-center">
+                <input class="btn btn-primary" type="submit" onclick="CriarTarefa();return false;" value="Criar Tarefa">
+            </div>      
+        </form>
+    </div>
+    
+    <div class="modal fade" id="TelaModal">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h1 id="TituloModal"></h1>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+              <p id="TextoModal"></p>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>
+            </div>
+          </div>
+        </div>
+      </div>    
+    
+    <footer>
+        <table id="tabelaTarefas" class="table table-striped container-table">
+            <thead>
+                <tr>
+                    <th >Tarefa</th>
+
+                    <th>Início</th>
+                
+                    <th>Término</th>
+                
+                    <th>Status</th>
+                
+                    <th>Alterar</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+            </tbody>
+        </table>
+    </footer>
+</body>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+<script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+
+<script src="js/index.js"></script>
+
+<script>
+    $(document).ready(function(){
+     // Ao clicar no nome da tarefa, abrir o modal
+     $('.Tarefa').on('click', function(){
+        let TituloModal = document.querySelector("#TituloModal");
+        $('#TelaModal #TituloModal').text(listaTarefas[i].tarefa);
+        $('#TelaModal #TextoModal').text(listaTarefas[i].descricao);
+        $('TelaModal').modal('show');
+       
+     });
+   }); 
+
+   document.addEventListener('DOMContentLoaded', function () {
+        // Ao clicar no nome da tarefa, abrir o modal
+        document.querySelectorAll('.Tarefa').forEach(function (elemento) {
+            elemento.addEventListener('click', function () {
+                // Obter o ID da tarefa a partir do atributo data-tarefa-id
+                const tarefaId = this.getAttribute('data-id');
+
+                // Obter a descrição da tarefa correspondente
+                const tarefaSelecionada = listaTarefas.find(e=>e.id===tarefaId); 
+
+                // Preencher dinamicamente o título e o corpo do modal
+                document.getElementById('modalTitulo').innerText = tarefaSelecionada.tarefa;
+                document.getElementById('modalCorpo').innerText = tarefaSelecionada.descricao;
+
+                // Exibir o modal
+                $('#myModal').modal('show');
+            });
+        });
+    });
+ </script>
+</html>

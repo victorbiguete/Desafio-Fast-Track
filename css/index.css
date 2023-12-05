@@ -1,0 +1,22 @@
+
+.nav-bar{
+    background-color: rgb(42, 42, 42);
+    color: white ;
+    text-decoration: none;
+    font-size: 20px;
+}
+
+
+.nav-bar input{
+    color: white;
+    font-size: 20px;
+}
+
+.container{
+    width: 75vh;
+}
+.text-center{
+    margin-top:25px;
+    margin-bottom: 20px;
+}
+
